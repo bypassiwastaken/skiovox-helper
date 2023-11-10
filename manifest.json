@@ -1,0 +1,77 @@
+{
+  "manifest_version": 2,
+  "version": "1.1.0",
+  "name": "Skiovox Helper",
+  "description": "A helper for the Skiovox exploit. Read more at skiovox.com.",
+  "commands": {
+    "NEW_TAB": {
+      "description": "Ctrl+T"
+    },
+    "CLOSE_TAB": {
+      "description": "Ctrl+W"
+    },
+    "RESTORE_TAB": {
+      "description": "Ctrl+Shift+T"
+    },
+    "NEW_WINDOW": {
+      "description": "Ctrl+N"
+    },
+    "NEW_INCOG_WINDOW": {
+      "description": "Ctrl+Shift+N"
+    },
+    "CLOSE_WINDOW": {
+      "description": "Ctrl+Shift+W"
+    },
+    "TAB_NEXT": {
+      "description": "Cycle forwards through tabs: Ctrl+Q"
+    },
+    "TAB_BACK": {
+      "description": "Cycle backwards through tabs: Ctrl+Shift+Q"
+    },
+    "SWITCH_WINDOWS": {
+      "description": "Switch windows: Alt+Q"
+    },
+    "CTRL_1": {
+      "description": "Ctrl+1"
+    },
+    "CTRL_2": {
+      "description": "Ctrl+2"
+    },
+    "CTRL_3": {
+      "description": "Ctrl+3"
+    },
+    "CTRL_4": {
+      "description": "Ctrl+4"
+    },
+    "CTRL_5": {
+      "description": "Ctrl+5"
+    },
+    "CTRL_6": {
+      "description": "Ctrl+6"
+    },
+    "CTRL_7": {
+      "description": "Ctrl+7"
+    },
+    "CTRL_8": {
+      "description": "Ctrl+8"
+    },
+    "CTRL_9": {
+      "description": "Ctrl+9"
+    }
+  },
+  "background": {
+    "scripts": [
+      "/background/commands.js",
+      "/background/setup.js"
+    ]
+  },
+  "chrome_url_overrides": {
+    "newtab": "/new-tab/main.html"
+  },
+  "permissions": [
+    "commands",
+    "tabs",
+    "sessions",
+    "<all_urls>"
+  ]
+}

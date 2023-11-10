@@ -1,0 +1,41 @@
+* {
+  font-family: "Noto sans", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  padding: 8px;
+  background: #212121;
+  color: #ffffff;
+}
+
+.top-left {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.top-right {
+  position: fixed;
+  top: 10px;
+  right: 0;
+  padding: 5px 10px;
+  display: flex;
+  gap: 15px;
+}
+
+svg {
+  color: white;
+  filter: brightness(0) invert(1);
+  margin: 1px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#move {
+  cursor: move;
+}

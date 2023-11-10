@@ -27,8 +27,6 @@ class DraggableElement {
     window.addEventListener("mousemove", this.onMouseMove.bind(this));
     window.addEventListener("mouseup", this.invalidateMouseDown.bind(this));
     window.addEventListener("blur", this.invalidateMouseDown.bind(this));
-
-    this.element = element;
   }
 
   onMouseDown(event) {

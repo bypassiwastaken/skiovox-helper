@@ -17,7 +17,7 @@ class Coords {
   }
 }
 
-class DraggableElement {
+class DragController {
   isMouseDown = false;
   clickOffset;
   currentWindow;
@@ -67,4 +67,4 @@ class DraggableElement {
   }
 }
 
-export { DraggableElement };
+export { DragController };

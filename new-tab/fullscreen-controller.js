@@ -1,4 +1,4 @@
-class FullscreenElement {
+class FullscreenController {
   constructor(element) {
     element.addEventListener('click', this.onClicked.bind(this));
 
@@ -45,4 +45,4 @@ class FullscreenElement {
   }
 }
 
-export { FullscreenElement }
+export { FullscreenController }

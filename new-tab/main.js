@@ -1,5 +1,5 @@
-import { DraggableElement } from "./draggable-element.js";
-import { FullscreenElement } from "./fullscreen-element.js";
+import { DragController } from "./drag-controller.js";
+import { FullscreenController } from "./fullscreen-controller.js";
 
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "data:,Someone remind Bypassi to add a help URL"; // TODO
@@ -38,5 +38,5 @@ addAccount.addEventListener('click', () => {
     chrome.tabs.create({ url: ADDSESSION_URL })
 })
 
-new DraggableElement(move);
-new FullscreenElement(fullscreen);
+new DragController(move);
+new FullscreenController(fullscreen);

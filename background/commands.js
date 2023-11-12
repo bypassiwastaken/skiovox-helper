@@ -15,7 +15,7 @@ function cycleTabs(direction) {
   });
 }
 
-function onCommand(name) {
+function onCommand(name, tab) {
   switch (name) {
     case "NEW_TAB":
       getRecent(({window}) => {
@@ -28,9 +28,9 @@ function onCommand(name) {
       break;
 
     case "CLOSE_TAB":
-      chrome.tabs.getSelected((selectedTab) => {
-        chrome.tabs.remove(selectedTab.id);
-      });
+      if (tab) {
+        chrome.tabs.remove(tab.id);
+      }
       break;
 
     case "RESTORE_TAB":

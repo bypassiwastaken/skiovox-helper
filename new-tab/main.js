@@ -26,10 +26,8 @@ help.addEventListener('click', () => {
 })
 
 webStore.addEventListener('click', () => {
-    let version = Number(navigator.appVersion.match(/Chrom(e|ium)\/([0-9]+)/)[2]);
-    if (version < 114) { // not sure if this is actually the version
-        alert("This web store may not supported by your version");
-    }
+   let version = Number(navigator.appVersion.match(/Chrom(e|ium)\/([0-9]+)/)[2]);
+    if (version <= 114 && !confirm("This webstore may not be supported by your version")) return;
 
     chrome.tabs.create({ url: WEBSTORE_URL })
 })

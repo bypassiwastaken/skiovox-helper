@@ -3,6 +3,9 @@
   "version": "1.1.0",
   "name": "Skiovox Helper",
   "description": "A helper for the Skiovox exploit -- read more at skiovox.com",
+  "icons": {
+    "128": "icon.png"
+  },
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAumR4jfjFFAV2w/Ag56R6CLN2FNVnOO03UyayDHJJOGAXc7MIzElD6opvefPoZi6EHPqH4IvuRZ+u3EaWdv36lUOWMx7ieHjptmvyMF1BTaKbFaH5iyn/8dwnGvKoqWftA+mn1eb7vvzrQWaewP2IuMuHckY9p/whRy0XyW4bAMYP5Uw+oCTMayNzB8LbiczHttVt4f3003bRZ5QljqSl7QNHL6gCUteXKMCMYiXNigSTaShHeXjKWIaKwSoyU/kpKkr1YyCQlbtBGVwQQbuiaA34f7o0ZG6I57hPB+0bMHXIvEGj4kcHZo3C6iVWaV1dS3XCC/q404Kr09lqjloS7wIDAQAB",
   "commands": {
     "NEW_TAB": {

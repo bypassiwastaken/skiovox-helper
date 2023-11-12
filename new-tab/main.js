@@ -2,7 +2,7 @@ import { DragController } from "./drag-controller.js";
 import { FullscreenController } from "./fullscreen-controller.js";
 
 const FILES_URL = "chrome://file-manager";
-const HELP_URL = "data:,Someone remind Bypassi to add a help URL"; // TODO
+const HELP_URL = "https://github.com/bypassiwastaken/skiovox-helper";
 const WEBSTORE_URL = "https://chromewebstore.google.com";
 const ADDSESSION_URL = "https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAlAmgQ&flowName=GlifWebSignIn&flowEntry=AddSession";
 

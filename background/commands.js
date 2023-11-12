@@ -28,7 +28,7 @@ function onCommand(name, tab) {
       break;
 
     case "CLOSE_TAB":
-      if (tab) {
+      if (tab && tab.id !== chrome.tabs.TAB_ID_NONE) {
         chrome.tabs.remove(tab.id);
       }
       break;
@@ -62,9 +62,12 @@ function onCommand(name, tab) {
       break;
 
     case "SWITCH_WINDOWS":
-      getRecent(({window}) => {
-        chrome.windows.update(window.id, { focused: false });
-      });
+      chrome.windows.getAll((windows) => {
+        if (windows.length === 1) return;
+        getRecent(({window}) => {
+          chrome.windows.update(window.id, { focused: false });
+        });
+      })
       break;
 
     case "CTRL_1":

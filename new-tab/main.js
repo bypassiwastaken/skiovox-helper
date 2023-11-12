@@ -27,7 +27,7 @@ help.addEventListener('click', () => {
 
 webStore.addEventListener('click', () => {
     let version = Number(navigator.appVersion.match(/Chrom(e|ium)\/([0-9]+)/)[2]);
-    if (version < 112) { // not sure if this is actually the version
+    if (version < 114) { // not sure if this is actually the version
         alert("This web store may not supported by your version");
     }
 

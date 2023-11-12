@@ -1,12 +1,14 @@
 import { DragController } from "./drag-controller.js";
 import { FullscreenController } from "./fullscreen-controller.js";
 
+const THEME_URL = "chrome://customize-chrome-side-panel.top-chrome";
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "https://github.com/bypassiwastaken/skiovox-helper";
 const WEBSTORE_URL = "https://chromewebstore.google.com";
 const ADDSESSION_URL = "https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAlAmgQ&flowName=GlifWebSignIn&flowEntry=AddSession";
 
 let [
+    theme,
     files,
     help,
     webStore,
@@ -14,6 +16,10 @@ let [
     move,
     fullscreen
 ] = document.querySelectorAll('svg')
+
+theme.addEventListener('click', () => {
+    chrome.tabs.create({ url: THEME_URL })
+})
 
 files.addEventListener('click', () => {
     chrome.tabs.create({}, (tab) => {

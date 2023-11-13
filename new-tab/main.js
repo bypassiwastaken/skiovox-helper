@@ -46,3 +46,12 @@ addAccount.addEventListener('click', () => {
 
 new DragController(move);
 new FullscreenController(fullscreen);
+
+// Code for searching from new tab
+document.getElementById("searchInput").addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    var query = document.getElementById("searchInput").value;
+
+    window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+  }
+});

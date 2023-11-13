@@ -1,7 +1,8 @@
 import { DragController } from "./drag-controller.js";
 import { FullscreenController } from "./fullscreen-controller.js";
 
-const THEME_URL = "chrome://customize-chrome-side-panel.top-chrome";
+const THEME_URL_1 = "chrome://customize-chrome-side-panel.top-chrome";
+const THEME_URL_2 = "chrome://personalization";
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "https://github.com/bypassiwastaken/skiovox-helper";
 const WEBSTORE_URL = "https://chromewebstore.google.com";
@@ -18,7 +19,8 @@ let [
 ] = document.querySelectorAll('svg')
 
 theme.addEventListener('click', () => {
-    chrome.tabs.create({ url: THEME_URL })
+    chrome.tabs.create({ url: THEME_URL_1 })
+    chrome.tabs.create({ url: THEME_URL_2 })
 })
 
 files.addEventListener('click', () => {

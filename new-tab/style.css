@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 * {
-  font-family: "Noto sans", sans-serif;
+  font-family: "Lato", sans-serif;
   box-sizing: border-box;
 }
 
@@ -7,12 +9,13 @@ body {
   padding: 8px;
   background: #212121;
   color: #ffffff;
+  margin: 0; /* Remove default body margin */
 }
 
 .top-left {
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   padding: 20px;
   font-size: 20px;
 }
@@ -20,7 +23,7 @@ body {
 .top-right {
   position: fixed;
   top: 10px;
-  right: 0px;
+  right: 0;
   padding: 5px 10px;
   display: flex;
   gap: 15px;

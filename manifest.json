@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "2.1.0",
+  "version": "2.2.0",
   "name": "Skiovox Helper",
   "description": "A helper for the Skiovox exploit -- read more at skiovox.com",
   "icons": {
@@ -66,7 +66,8 @@
   "background": {
     "scripts": [
       "/background/commands.js",
-      "/background/setup.js"
+      "/background/setup.js",
+      "/background/webstore-fix.js"
     ]
   },
   "chrome_url_overrides": {

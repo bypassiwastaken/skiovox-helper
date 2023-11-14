@@ -22,7 +22,7 @@ class BatteryDisplay {
     }
 
     getPercentMessage(battery) {
-        return `Battery: ${battery.level * 100}%`
+        return `Battery: ${Math.round(battery.level * 100)}%`
     }
 
     getChargingMessage(battery) {

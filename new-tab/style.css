@@ -26,6 +26,26 @@ body {
   gap: 15px;
 }
 
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.time {
+  font: 55px monospace;
+}
+
+.battery {
+  font-size: 15px;
+}
+
 svg {
   color: white;
   filter: brightness(0) invert(1);
@@ -33,6 +53,11 @@ svg {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  transition: transform 250ms;
+}
+
+svg:hover {
+  transform: scale(1.2);
 }
 
 #move {

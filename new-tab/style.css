@@ -76,7 +76,6 @@ svg:hover {
 .btn {
   border: none;
   background-color: inherit;
-  padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
@@ -85,4 +84,5 @@ svg:hover {
 
 .btn:hover {
   transform: scale(1.2);
+  background-color: #212121;
 }

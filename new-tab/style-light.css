@@ -88,4 +88,6 @@ svg:hover {
   display: inline-block;
 }
 
-.btn:hover {background: #212121;}
+.btn:hover {
+  transform: scale(1.2);
+}

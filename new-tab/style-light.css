@@ -1,0 +1,91 @@
+* {
+  font-family: "Noto sans", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 8px;
+  background: #ffffff;
+  color: #212121;
+}
+
+button {
+  padding: 8px;
+  background: #ffffff;
+  color: #212121;
+}
+
+.top-left {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.top-right {
+  position: fixed;
+  top: 10px;
+  right: 0px;
+  padding: 5px 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.bottom-left {
+  position: fixed;
+  left: 10px;
+  bottom: 0px;
+  padding: 5px 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.time {
+  font: 55px monospace;
+}
+
+.battery {
+  font-size: 15px;
+}
+
+svg {
+  color: white;
+  filter: brightness(0);
+  margin: 1px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 250ms;
+}
+
+svg:hover {
+  transform: scale(1.2);
+}
+
+#move {
+  cursor: move;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #212121;}

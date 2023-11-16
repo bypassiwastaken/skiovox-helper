@@ -45,8 +45,14 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.date {
+  font: 22.5px monospace;
+  line-height: 50%;
+}
+
 .time {
   font: 55px monospace;
+  line-height: 75%;
 }
 
 .battery {

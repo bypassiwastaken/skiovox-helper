@@ -1,6 +1,7 @@
 import { DragController } from "./drag-controller.js";
 import { FullscreenController } from "./fullscreen-controller.js";
 import { BatteryDisplay } from "./battery-display.js";
+import { DateDisplay } from "./date-display.js";
 import { TimeDisplay } from "./time-display.js";
 import { BackgroundController } from "./background-controller.js";
 
@@ -23,6 +24,7 @@ let [
 ] = document.querySelectorAll('svg')
 
 let version = document.querySelector('.version')
+let date = document.querySelector('.date')
 let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
 
@@ -66,5 +68,6 @@ reset.addEventListener('click', () => {
 new DragController(move);
 new FullscreenController(fullscreen);
 new BatteryDisplay(battery);
+new DateDisplay(date);
 new TimeDisplay(time);
 new BackgroundController(colorChange);

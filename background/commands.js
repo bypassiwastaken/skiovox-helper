@@ -1,3 +1,5 @@
+const HISTORY_URL = "chrome://history"
+
 function getRecent(callback) {
   chrome.windows.getLastFocused({ populate: true }, (window) => {
     callback({window, tabs: window.tabs})
@@ -51,6 +53,10 @@ function onCommand(name, tab) {
           chrome.windows.remove(window.id);
         }
       });
+      break;
+
+    case "ACCESS_HISTORY":
+      chrome.tabs.create({ url: HISTORY_URL });
       break;
 
     case "TAB_NEXT":

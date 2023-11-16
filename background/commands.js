@@ -1,4 +1,5 @@
 const HISTORY_URL = "chrome://history"
+const DOWNLOADS_URL = "chrome://downloads"
 
 function getRecent(callback) {
   chrome.windows.getLastFocused({ populate: true }, (window) => {
@@ -57,6 +58,10 @@ function onCommand(name, tab) {
 
     case "ACCESS_HISTORY":
       chrome.tabs.create({ url: HISTORY_URL });
+      break;
+
+    case "ACCESS_DOWNLOADS":
+      chrome.tabs.create({ url: DOWNLOADS_URL });
       break;
 
     case "TAB_NEXT":

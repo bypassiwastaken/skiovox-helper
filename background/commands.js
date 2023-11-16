@@ -3,12 +3,12 @@ const DOWNLOADS_URL = "chrome://downloads"
 
 function getRecent(callback) {
   chrome.windows.getLastFocused({ populate: true }, (window) => {
-    callback({window, tabs: window.tabs})
+    callback({ window, tabs: window.tabs })
   });
 }
 
 function cycleTabs(direction) {
-  getRecent(({tabs}) => {
+  getRecent(({ tabs }) => {
     let currentTab = tabs.find((e) => e.active);
     if (!currentTab) return;
 
@@ -21,8 +21,22 @@ function cycleTabs(direction) {
 function onCommand(name, tab) {
   switch (name) {
     case "NEW_TAB":
-      getRecent(({window}) => {
+      getRecent(({ window }) => {
         chrome.tabs.create({ windowId: window?.id });
+
+        if (window && window.state === chrome.windows.WindowState.FULLSCREEN) {
+          chrome.windows.update(window.id, { state: chrome.windows.WindowState.MAXIMIZED })
+        }
+      });
+      break;
+
+    case "VIEW_SOURCE":
+      getRecent(({ tabs }) => {
+        let currentTab = tabs.find((e) => e.active);
+        if (!currentTab) return;
+        if (currentTab.url.startsWith("view-source:")) return;
+        
+        chrome.tabs.create({ windowId: window?.id, url: "view-source:" + currentTab.url });
 
         if (window && window.state === chrome.windows.WindowState.FULLSCREEN) {
           chrome.windows.update(window.id, { state: chrome.windows.WindowState.MAXIMIZED })
@@ -49,7 +63,7 @@ function onCommand(name, tab) {
       break;
 
     case "CLOSE_WINDOW":
-      getRecent(({window}) => {
+      getRecent(({ window }) => {
         if (window.focused) {
           chrome.windows.remove(window.id);
         }
@@ -75,7 +89,7 @@ function onCommand(name, tab) {
     case "SWITCH_WINDOWS":
       chrome.windows.getAll((windows) => {
         if (windows.length === 1) return;
-        getRecent(({window}) => {
+        getRecent(({ window }) => {
           chrome.windows.update(window.id, { focused: false });
         });
       })
@@ -90,7 +104,7 @@ function onCommand(name, tab) {
     case "CTRL_7":
     case "CTRL_8":
       let num = Number(name.split("_")[1]);
-      getRecent(({tabs}) => {
+      getRecent(({ tabs }) => {
         let specifiedTab = tabs[num - 1];
         if (!specifiedTab) return;
 
@@ -99,7 +113,7 @@ function onCommand(name, tab) {
       break;
 
     case "CTRL_9":
-      getRecent(({tabs}) => {
+      getRecent(({ tabs }) => {
         let lastTab = tabs[tabs.length - 1];
         chrome.tabs.update(lastTab.id, { active: true });
       });

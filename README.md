@@ -10,4 +10,4 @@ This extension:
 
 *Note: You can exit fullscreen videos by pressing ctrl+T after you've set up the shortcuts*
 
-<img src="https://github.com/bypassiwastaken/skiovox-helper/assets/144500273/8a5ed73f-e3db-4944-b271-c47cd8b71233" width="500">
+<img src="https://github.com/bypassiwastaken/skiovox-helper/assets/144500273/baa94258-e1e0-46aa-831b-6667c39c5374" width="500">

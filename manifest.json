@@ -11,6 +11,9 @@
     "ACCESS_HISTORY": {
       "description": "Ctrl+H"
     },
+    "ACCESS_FILES": {
+      "description": "Alt+Shift+M"
+    },
     "ACCESS_DOWNLOADS": {
       "description": "Ctrl+J"
     },

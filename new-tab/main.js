@@ -4,7 +4,7 @@ import { BatteryDisplay } from "./battery-display.js";
 import { TimeDisplay } from "./time-display.js";
 import { BackgroundController } from "./background-controller.js";
 
-const THEME_URL = "chrome://customize-chrome-side-panel.top-chrome";
+const NEW_TAB_URL = "chrome://new-tab-page";
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "https://github.com/bypassiwastaken/skiovox-helper";
 const WEBSTORE_URL = "https://chromewebstore.google.com";
@@ -29,7 +29,8 @@ let battery = document.querySelector('.battery')
 version.textContent = "v" + chrome.runtime.getManifest().version
 
 theme.addEventListener('click', () => {
-    chrome.tabs.create({ url: THEME_URL })
+    alert("The original New Tab page will now open. On that page, click the edit icon in the bottom right corner to edit your browser theme.")
+    chrome.tabs.create({ url: NEW_TAB_URL })
 })
 
 files.addEventListener('click', () => {

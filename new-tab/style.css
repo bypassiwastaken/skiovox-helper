@@ -64,6 +64,7 @@ svg {
 
 body.light svg {
   color: #212121;
+  filter: none;
 }
 
 svg:hover {

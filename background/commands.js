@@ -34,6 +34,9 @@ function onCommand(name, tab) {
       });
       break;
 
+    case "EXIT_FULL_SCREEN":
+      exitFullScreen(window);
+
     case "VIEW_SOURCE":
       getRecent(({ tabs }) => {
         let currentTab = tabs.find((e) => e.active);

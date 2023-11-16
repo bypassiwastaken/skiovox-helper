@@ -69,5 +69,5 @@ new DragController(move);
 new FullscreenController(fullscreen);
 new BatteryDisplay(battery);
 new TimeDisplay(time);
-new DateDisplay(dateelement);
+new DateDisplay(date);
 new BackgroundController(colorChange);

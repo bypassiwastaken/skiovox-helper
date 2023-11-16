@@ -11,6 +11,7 @@ const WEBSTORE_URL = "https://chromewebstore.google.com";
 const ADDSESSION_URL = "https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAlAmgQ&flowName=GlifWebSignIn&flowEntry=AddSession";
 
 let [
+    contrast,
     theme,
     files,
     help,
@@ -22,6 +23,18 @@ let [
 
 let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
+
+function setTheme() {
+    if (localStorage.useLightTheme) document.body.classList.add("light")
+        else document.body.classList.remove("light")
+}
+
+setTheme()
+
+contrast.addEventListener('click', () => {
+    localStorage.useLightTheme = localStorage.useLightTheme ? false : true
+    setTheme()
+})
 
 theme.addEventListener('click', () => {
     chrome.tabs.create({ url: THEME_URL_1 })

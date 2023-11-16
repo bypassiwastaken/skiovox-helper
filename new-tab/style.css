@@ -9,6 +9,12 @@ body {
   color: #ffffff;
 }
 
+body.light {
+  padding: 8px;
+  background: #ffffff;
+  color: #212121;
+}
+
 .top-left {
   position: fixed;
   top: 0px;
@@ -54,6 +60,10 @@ svg {
   height: 30px;
   cursor: pointer;
   transition: transform 250ms;
+}
+
+body.light svg {
+  color: #212121;
 }
 
 svg:hover {

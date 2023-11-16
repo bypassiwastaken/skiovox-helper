@@ -1,3 +1,4 @@
+const VIEW_SOURCE_PREFIX = "view-source:"
 const HISTORY_URL = "chrome://history"
 const DOWNLOADS_URL = "chrome://downloads"
 
@@ -18,15 +19,18 @@ function cycleTabs(direction) {
   });
 }
 
+function exitFullscreen(window) {
+  if (window && window.state === chrome.windows.WindowState.FULLSCREEN) {
+    chrome.windows.update(window.id, { state: chrome.windows.WindowState.MAXIMIZED })
+  }
+}
+
 function onCommand(name, tab) {
   switch (name) {
     case "NEW_TAB":
       getRecent(({ window }) => {
         chrome.tabs.create({ windowId: window?.id });
-
-        if (window && window.state === chrome.windows.WindowState.FULLSCREEN) {
-          chrome.windows.update(window.id, { state: chrome.windows.WindowState.MAXIMIZED })
-        }
+        exitFullscreen(window);
       });
       break;
 
@@ -34,13 +38,10 @@ function onCommand(name, tab) {
       getRecent(({ tabs }) => {
         let currentTab = tabs.find((e) => e.active);
         if (!currentTab) return;
-        if (currentTab.url.startsWith("view-source:")) return;
-        
-        chrome.tabs.create({ windowId: window?.id, url: "view-source:" + currentTab.url });
+        if (currentTab.url.startsWith(VIEW_SOURCE_PREFIX)) return;
 
-        if (window && window.state === chrome.windows.WindowState.FULLSCREEN) {
-          chrome.windows.update(window.id, { state: chrome.windows.WindowState.MAXIMIZED })
-        }
+        chrome.tabs.create({ windowId: window?.id, url: VIEW_SOURCE_PREFIX + currentTab.url });
+        exitFullscreen(window);
       });
       break;
 
@@ -71,11 +72,11 @@ function onCommand(name, tab) {
       break;
 
     case "ACCESS_HISTORY":
-      chrome.tabs.create({ url: HISTORY_URL });
+      chrome.tabs.create({ windowId: window?.id, url: HISTORY_URL });
       break;
 
     case "ACCESS_DOWNLOADS":
-      chrome.tabs.create({ url: DOWNLOADS_URL });
+      chrome.tabs.create({ windowId: window?.id, url: DOWNLOADS_URL });
       break;
 
     case "TAB_NEXT":

@@ -64,6 +64,9 @@
     },
     "CTRL_9": {
       "description": "Ctrl+9"
+    },
+    "VIEW_SOURCE": {
+      "description": "Ctrl+Shift+U"
     }
   },
   "background": {

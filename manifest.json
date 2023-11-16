@@ -66,7 +66,7 @@
       "description": "Ctrl+9"
     },
     "VIEW_SOURCE": {
-      "description": "Ctrl+Shift+U"
+      "description": "Ctrl+U"
     }
   },
   "background": {

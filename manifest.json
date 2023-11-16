@@ -84,5 +84,17 @@
     "tabs",
     "sessions",
     "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "/content-scripts/window-open-fix.js"
+      ],
+      "all-frames": true,
+      "run-at": "document_start"
+    }
   ]
 }

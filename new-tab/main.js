@@ -2,6 +2,7 @@ import { DragController } from "./drag-controller.js";
 import { FullscreenController } from "./fullscreen-controller.js";
 import { BatteryDisplay } from "./battery-display.js";
 import { TimeDisplay } from "./time-display.js";
+import { DateDisplay } from "./date-display.js";
 import { BackgroundController } from "./background-controller.js";
 
 const NEW_TAB_URL = "chrome://new-tab-page";
@@ -24,6 +25,7 @@ let [
 
 let version = document.querySelector('.version')
 let time = document.querySelector('.time')
+let dateelement = document.querySelector('.date')
 let battery = document.querySelector('.battery')
 
 version.textContent = "v" + chrome.runtime.getManifest().version
@@ -67,4 +69,5 @@ new DragController(move);
 new FullscreenController(fullscreen);
 new BatteryDisplay(battery);
 new TimeDisplay(time);
+new DateDisplay(dateelement);
 new BackgroundController(colorChange);

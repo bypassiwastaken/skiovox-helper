@@ -1,5 +1,6 @@
 const HISTORY_URL = "chrome://history"
 const DOWNLOADS_URL = "chrome://downloads"
+const FILES_URL = "chrome://file-manager"
 
 function getRecent(callback) {
   chrome.windows.getLastFocused({ populate: true }, (window) => {
@@ -70,6 +71,10 @@ function onCommand(name, tab) {
 
     case "TAB_BACK":
       cycleTabs(-1)
+      break;
+      
+    case "ACCESS_FILES":
+      chrome.tabs.create({ url: FILES_URL });
       break;
 
     case "SWITCH_WINDOWS":

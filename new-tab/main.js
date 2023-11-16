@@ -25,7 +25,7 @@ let [
 
 let version = document.querySelector('.version')
 let time = document.querySelector('.time')
-let dateelement = document.querySelector('.date')
+let date = document.querySelector('.date')
 let battery = document.querySelector('.battery')
 
 version.textContent = "v" + chrome.runtime.getManifest().version

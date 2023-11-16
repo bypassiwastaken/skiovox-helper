@@ -36,10 +36,6 @@ function onCommand(name, tab) {
         chrome.tabs.remove(tab.id);
       }
       break;
-      
-      case "PANIC_KEY":
-      //gonna do later
-      break;
 
     case "RESTORE_TAB":
       chrome.sessions.restore();

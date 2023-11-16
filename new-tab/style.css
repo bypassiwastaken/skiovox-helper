@@ -14,7 +14,14 @@ body {
   top: 0px;
   left: 0px;
   padding: 20px;
+}
+
+.name {
   font-size: 20px;
+}
+
+.version {
+  font: bold 14px monospace;
 }
 
 .top-right {

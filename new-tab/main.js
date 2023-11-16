@@ -22,8 +22,11 @@ let [
     reset
 ] = document.querySelectorAll('svg')
 
+let version = document.querySelector('.version')
 let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
+
+version.textContent = "v" + chrome.runtime.getManifest().version
 
 theme.addEventListener('click', () => {
     chrome.tabs.create({ url: THEME_URL })

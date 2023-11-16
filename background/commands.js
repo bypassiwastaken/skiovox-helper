@@ -38,15 +38,7 @@ function onCommand(name, tab) {
       break;
       
       case "PANIC_KEY":
-       chrome.windows.getCurrent(function(wind) { 
-       var maxWidth = window.screen.availWidth; 
-       var maxHeight = window.screen.availHeight; 
-       var updateInfo = { 
-         left: 32,  
-         top: 32, 
-         width: maxWidth, 
-         height: maxHeight }; 
-         chrome.windows.update(wind.id, updateInfo);});
+      //gonna do later
       break;
 
     case "RESTORE_TAB":

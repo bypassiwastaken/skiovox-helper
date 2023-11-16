@@ -46,6 +46,12 @@ body {
   font-size: 15px;
 }
 
+.bottom-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
 svg {
   color: white;
   filter: brightness(0) invert(1);
@@ -62,4 +68,14 @@ svg:hover {
 
 #move {
   cursor: move;
+}
+
+/* alternate mode */
+
+body.black-text {
+  color: black;
+}
+
+body.black-text svg {
+filter: brightness(0);
 }

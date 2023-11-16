@@ -2,6 +2,7 @@ import { DragController } from "./drag-controller.js";
 import { FullscreenController } from "./fullscreen-controller.js";
 import { BatteryDisplay } from "./battery-display.js";
 import { TimeDisplay } from "./time-display.js";
+import { BackgroundController } from "./background-controller.js";
 
 const THEME_URL_1 = "chrome://customize-chrome-side-panel.top-chrome";
 const THEME_URL_2 = "chrome://personalization";
@@ -17,7 +18,8 @@ let [
     webStore,
     addAccount,
     move,
-    fullscreen
+    fullscreen,
+    colorChange
 ] = document.querySelectorAll('svg')
 
 let time = document.querySelector('.time')
@@ -55,3 +57,4 @@ new DragController(move);
 new FullscreenController(fullscreen);
 new BatteryDisplay(battery);
 new TimeDisplay(time);
+new BackgroundController(colorChange);

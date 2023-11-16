@@ -52,6 +52,12 @@ body {
   left: 20px;
 }
 
+.bottom-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
 svg {
   color: white;
   filter: brightness(0) invert(1);
@@ -77,5 +83,5 @@ body.black-text {
 }
 
 body.black-text svg {
-filter: brightness(0);
+  filter: brightness(0);
 }

@@ -19,7 +19,8 @@ let [
     addAccount,
     move,
     fullscreen,
-    colorChange
+    colorChange,
+    reset
 ] = document.querySelectorAll('svg')
 
 let time = document.querySelector('.time')
@@ -51,6 +52,13 @@ webStore.addEventListener('click', () => {
 
 addAccount.addEventListener('click', () => {
     chrome.tabs.create({ url: ADDSESSION_URL })
+})
+
+reset.addEventListener('click', () => {
+    if (confirm("Are you sure you want to reset Skiovox helper settings?")) {
+        localStorage.clear()
+        chrome.runtime.reload()
+    }
 })
 
 new DragController(move);

@@ -11,7 +11,11 @@ class DateDisplay {
 
     render() { 
        let date = new Date()
-       this.element.textContent = [date.getMonth(),'/',date.getDate(),'/',date.getFullYear()].join('')
+       this.element.textContent = [
+           date.getMonth(),
+           date.getDate(),
+           date.getFullYear()
+       ].join('/')
     }
 }
 

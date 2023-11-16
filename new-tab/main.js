@@ -4,8 +4,7 @@ import { BatteryDisplay } from "./battery-display.js";
 import { TimeDisplay } from "./time-display.js";
 import { BackgroundController } from "./background-controller.js";
 
-const THEME_URL_1 = "chrome://customize-chrome-side-panel.top-chrome";
-const THEME_URL_2 = "chrome://personalization";
+const THEME_URL = "chrome://customize-chrome-side-panel.top-chrome";
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "https://github.com/bypassiwastaken/skiovox-helper";
 const WEBSTORE_URL = "https://chromewebstore.google.com";
@@ -27,8 +26,7 @@ let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
 
 theme.addEventListener('click', () => {
-    chrome.tabs.create({ url: THEME_URL_1 })
-    chrome.tabs.create({ url: THEME_URL_2 })
+    chrome.tabs.create({ url: THEME_URL })
 })
 
 files.addEventListener('click', () => {

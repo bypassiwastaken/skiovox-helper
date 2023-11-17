@@ -4,6 +4,7 @@ import { BatteryDisplay } from "./battery-display.js";
 import { DateDisplay } from "./date-display.js";
 import { TimeDisplay } from "./time-display.js";
 import { BackgroundController } from "./background-controller.js";
+import { UpdateChecker } from "./update-checker.js";
 
 const NEW_TAB_URL = "chrome://new-tab-page";
 const FILES_URL = "chrome://file-manager";
@@ -71,3 +72,4 @@ new BatteryDisplay(battery);
 new DateDisplay(date);
 new TimeDisplay(time);
 new BackgroundController(colorChange);
+new UpdateChecker();

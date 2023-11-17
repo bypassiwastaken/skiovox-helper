@@ -2,6 +2,8 @@
 
 **Installation steps can be seen at the "stage 3" section on [skiovox.com](https://skiovox.com)**
 
+Once installed, open a new tab to see the extension's homepage.
+
 This extension:
 
 - Fixes most shortcut functionality within the exploit

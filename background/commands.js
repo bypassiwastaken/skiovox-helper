@@ -35,9 +35,10 @@ function onCommand(name, tab) {
       break;
 
     case "EXIT_FULL_SCREEN":
-      if (window && window.state === chrome.windows.WindowState.FULLSCREEN) {
-        chrome.windows.update(window.id, { state: chrome.windows.WindowState.MAXIMIZED })
-      }
+      getRecent(({ window }) => {
+        //chrome.tabs.create({ windowId: window?.id });
+        exitFullscreen(window);
+      });
       break;
 
     case "VIEW_SOURCE":

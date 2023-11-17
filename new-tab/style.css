@@ -57,6 +57,7 @@ body {
 
 .battery {
   font-size: 15px;
+  line-height: 0px;
 }
 
 .bottom-left {

@@ -70,6 +70,9 @@
     },
     "VIEW_SOURCE": {
       "description": "Ctrl+U"
+    },
+    "EXIT_FULL_SCREEN": {
+      "description": "Ctrl+F"
     }
   },
   "background": {

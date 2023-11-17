@@ -48,6 +48,8 @@ function onCommand(name, tab) {
         if (currentTab.url.startsWith(VIEW_SOURCE_PREFIX)) return;
 
         chrome.tabs.create({ windowId: window?.id, url: VIEW_SOURCE_PREFIX + currentTab.url });
+      });
+      getRecent(({ window }) => {
         exitFullscreen(window);
       });
       break;
@@ -60,6 +62,9 @@ function onCommand(name, tab) {
 
     case "RESTORE_TAB":
       chrome.sessions.restore();
+      getRecent(({ window }) => {
+        exitFullscreen(window);
+      });
       break;
 
     case "NEW_WINDOW":
@@ -75,15 +80,22 @@ function onCommand(name, tab) {
         if (window.focused) {
           chrome.windows.remove(window.id);
         }
+        exitFullscreen(window);
       });
       break;
 
     case "ACCESS_HISTORY":
       chrome.tabs.create({ windowId: window?.id, url: HISTORY_URL });
+      getRecent(({ window }) => {
+        exitFullscreen(window);
+      });
       break;
 
     case "ACCESS_DOWNLOADS":
       chrome.tabs.create({ windowId: window?.id, url: DOWNLOADS_URL });
+      getRecent(({ window }) => {
+        exitFullscreen(window);
+      });
       break;
 
     case "TAB_NEXT":
@@ -128,6 +140,9 @@ function onCommand(name, tab) {
       getRecent(({ tabs }) => {
         let lastTab = tabs[tabs.length - 1];
         chrome.tabs.update(lastTab.id, { active: true });
+      });
+      getRecent(({ window }) => {
+        exitFullscreen(window);
       });
       break;
   }

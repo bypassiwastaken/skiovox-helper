@@ -8,7 +8,7 @@ class UpdateChecker {
     // Check if 24 hours have passed since the last update check; When it isnt set, because of first download, this will automatically pass.
     if (
       !lastUpdateCheck ||
-      Date.now() - lastUpdateCheck >= 10 * 1000 // hours * minutes * seconds * milliseconds
+      Date.now() - lastUpdateCheck >= 24 * 60 * 60 * 1000 // hours * minutes * seconds * milliseconds
     ) {
       fetch(
         "https://api.github.com/repos/bypassiwastaken/skiovox-helper/releases/latest"

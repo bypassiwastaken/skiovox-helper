@@ -117,6 +117,9 @@ function onCommand(name, tab) {
         if (!specifiedTab) return;
 
         chrome.tabs.update(specifiedTab.id, { active: true });
+        //exitFullscreen(window);
+      });
+      getRecent(({ window }) => {
         exitFullscreen(window);
       });
       break;

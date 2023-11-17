@@ -35,7 +35,9 @@ function onCommand(name, tab) {
       break;
 
     case "EXIT_FULL_SCREEN":
-      exitFullscreen(window);
+      if (window && window.state === chrome.windows.WindowState.FULLSCREEN) {
+        chrome.windows.update(window.id, { state: chrome.windows.WindowState.MAXIMIZED })
+      }
       break;
 
     case "VIEW_SOURCE":

@@ -35,7 +35,8 @@ function onCommand(name, tab) {
       break;
 
     case "EXIT_FULL_SCREEN":
-      exitFullScreen(window);
+      exitFullscreen(window);
+      break;
 
     case "VIEW_SOURCE":
       getRecent(({ tabs }) => {

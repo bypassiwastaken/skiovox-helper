@@ -51,8 +51,7 @@ body {
 }
 
 .time {
-  font: 55px monospace;
-  line-height: 75%;
+  font-size: 55px;
 }
 
 .battery {

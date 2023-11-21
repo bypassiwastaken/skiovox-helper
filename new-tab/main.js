@@ -7,7 +7,7 @@ import { BackgroundController } from "./background-controller.js";
 
 const WIFI_URL = "chrome://network/#select";
 const BLUETOOTH_URL = "chrome://bluetooth-pairing";
-const SETTINGS_URL = "chrome://os-settings";
+const SETTINGS_URL = "chrome://settings";
 const NEW_TAB_URL = "chrome://new-tab-page";
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "https://github.com/bypassiwastaken/skiovox-helper";
@@ -45,10 +45,7 @@ bluetooth.addEventListener('click', () => {
 })
 
 settings.addEventListener('click', () => {
-    alert("OS Settings crashes the kiosk session on 2a. Click OK to proceed.")
-    chrome.tabs.create({}, (tab) => {
-	chrome.tabs.update(tab.id, { url: SETTINGS_URL })
-    })
+    chrome.tabs.create({ url: SETTINGS_URL })
 })
 
 theme.addEventListener('click', () => {

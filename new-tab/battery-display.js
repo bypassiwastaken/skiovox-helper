@@ -7,14 +7,20 @@ class BatteryDisplay {
         this.listenForUpdates()
     }
 
-    getBattery() {
-        return navigator.getBattery().catch(() => reportError("Error reading battery."));
+    async getBattery() {
+        let battery = await navigator.getBattery()
+            .catch(() => reportError("Error reading battery."));
+
+        battery.secsLeft = Math.min(battery.chargingTime, battery.dischargingTime)
+        battery.isFull = battery.secsLeft === Infinity && battery.charging
+
+        return battery
     }
 
     async render() {
         let battery = await this.getBattery()
 
-        this.element.textContent = [
+        this.element.textContent = battery.isFull ? "Battery full" : [
             this.getPercentMessage(battery),
             this.getChargingMessage(battery),
             this.getTimeMessage(battery)
@@ -30,11 +36,10 @@ class BatteryDisplay {
     }
 
     getTimeMessage(battery) {
-        let secsLeft = Math.min(battery.chargingTime, battery.dischargingTime)
         let direction = battery.charging ? "full" : "empty"
 
-        let hoursLeft = Math.floor(secsLeft / 3600)
-        let minsLeft = Math.floor(secsLeft % 3600 / 60);
+        let hoursLeft = Math.floor(battery.secsLeft / 3600)
+        let minsLeft = Math.floor(battery.secsLeft % 3600 / 60);
         minsLeft = String(minsLeft).padStart(2, 0) // 8:9 to 8:09 etc
 
         return `Around ${hoursLeft}:${minsLeft} until ${direction}`

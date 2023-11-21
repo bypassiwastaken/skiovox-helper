@@ -5,6 +5,9 @@ import { DateDisplay } from "./date-display.js";
 import { TimeDisplay } from "./time-display.js";
 import { BackgroundController } from "./background-controller.js";
 
+const WIFI_URL = "chrome://network/#select";
+const BLUETOOTH_URL = "chrome://bluetooth-pairing";
+const SETTINGS_URL = "chrome://os-settings";
 const NEW_TAB_URL = "chrome://new-tab-page";
 const FILES_URL = "chrome://file-manager";
 const HELP_URL = "https://github.com/bypassiwastaken/skiovox-helper";
@@ -12,6 +15,9 @@ const WEBSTORE_URL = "https://chromewebstore.google.com";
 const ADDSESSION_URL = "https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAlAmgQ&flowName=GlifWebSignIn&flowEntry=AddSession";
 
 let [
+    wifi,
+    bluetooth,
+    settings,
     theme,
     files,
     help,
@@ -29,6 +35,21 @@ let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
 
 version.textContent = "v" + chrome.runtime.getManifest().version
+
+wifi.addEventListener('click', () => {
+    chrome.tabs.create({ url: WIFI_URL })
+})
+
+bluetooth.addEventListener('click', () => {
+    chrome.tabs.create({ url: BLUETOOTH_URL })
+})
+
+settings.addEventListener('click', () => {
+    alert("OS Settings crashes the kiosk session on 2a. Click OK to proceed.")
+    chrome.tabs.create({}, (tab) => {
+	chrome.tabs.update(tab.id, { url: SETTINGS_URL })
+    })
+})
 
 theme.addEventListener('click', () => {
     alert("The original New Tab page will now open. On that page, click the edit icon in the bottom right corner to edit your browser theme.")

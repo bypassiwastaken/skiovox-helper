@@ -15,18 +15,18 @@ const WEBSTORE_URL = "https://chromewebstore.google.com";
 const ADDSESSION_URL = "https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAlAmgQ&flowName=GlifWebSignIn&flowEntry=AddSession";
 
 let [
-    wifi,
-    bluetooth,
-    settings,
-    theme,
-    files,
     help,
     webStore,
     addAccount,
     move,
     fullscreen,
+    theme,
     colorChange,
-    reset
+    reset,
+    wifi,
+    bluetooth,
+    files,
+    settings
 ] = document.querySelectorAll('svg')
 
 let version = document.querySelector('.version')

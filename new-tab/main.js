@@ -15,8 +15,6 @@ const WEBSTORE_URL = "https://chromewebstore.google.com";
 const ADDSESSION_URL = "https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAlAmgQ&flowName=GlifWebSignIn&flowEntry=AddSession";
 
 let [
-    wifi,
-    bluetooth,
     settings,
     theme,
     files,
@@ -26,7 +24,8 @@ let [
     move,
     fullscreen,
     colorChange,
-    reset
+    wifi,
+    bluetooth
 ] = document.querySelectorAll('svg')
 
 let version = document.querySelector('.version')
@@ -74,13 +73,6 @@ webStore.addEventListener('click', () => {
 
 addAccount.addEventListener('click', () => {
     chrome.tabs.create({ url: ADDSESSION_URL })
-})
-
-reset.addEventListener('click', () => {
-    if (confirm("Are you sure you want to reset Skiovox helper settings?")) {
-        localStorage.clear()
-        chrome.runtime.reload()
-    }
 })
 
 new DragController(move);

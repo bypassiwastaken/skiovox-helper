@@ -12,7 +12,7 @@ class BatteryDisplay {
             .catch(() => reportError("Error reading battery."));
 
         battery.secsLeft = Math.min(battery.chargingTime, battery.dischargingTime)
-        battery.isFull = battery.secsLeft === Infinity && battery.charging
+        battery.isFull = battery.level === 1
 
         return battery
     }

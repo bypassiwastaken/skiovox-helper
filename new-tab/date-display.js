@@ -12,11 +12,11 @@ class DateDisplay {
     render() { 
        let date = new Date()
        this.element.textContent = [
-           date.getMonth() + 1,
+           date.getMonth(),
            date.getDate(),
            date.getFullYear()
        ].join('/')
     }
 }
 
-export { DateDisplay }
+export default DateDisplay

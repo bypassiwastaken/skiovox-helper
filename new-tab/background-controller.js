@@ -70,4 +70,4 @@ class BackgroundController {
     }
 }
 
-export { BackgroundController }
+export default BackgroundController

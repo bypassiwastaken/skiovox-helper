@@ -45,4 +45,4 @@ class FullscreenController {
   }
 }
 
-export { FullscreenController }
+export default FullscreenController

@@ -58,7 +58,6 @@ class BatteryDisplay {
 
         let hoursLeft = Math.floor(secsLeft / 3600)
         let minsLeft = Math.floor(secsLeft % 3600 / 60);
-        minsLeft = Number(String(minsLeft).padStart(2, 0) /* 8:9 to 8:09 etc */ );
 
         // default values to null if they are not defined
         hoursLeft = (hoursLeft === Infinity || hoursLeft === "NaN") ? null : hoursLeft;

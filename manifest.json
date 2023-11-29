@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "version": "2.4.1",
   "name": "Skiovox Helper",
-  "description": "A helper for the Skiovox exploit -- read more at skiovox.com",
+  "description": "Felixsalt fork of A helper for the Skiovox exploit -- read more at skiovox.com",
   "icons": {
     "128": "icon.png"
   },

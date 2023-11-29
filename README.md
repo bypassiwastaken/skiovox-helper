@@ -16,6 +16,6 @@ Once installed, open a new tab to see the extension's homepage.
 
 *Note: You can exit fullscreen by pressing ctrl+T after you've set up the shortcuts.*
 
-<img src="https://github.com/bypassiwastaken/skiovox-helper/assets/144500273/baa94258-e1e0-46aa-831b-6667c39c5374" width="500">
+![image](https://github.com/zkayns/skiovox-helper/assets/80561998/4c09893a-65a5-45da-b70b-5f3d20c27d54)
 
 If you need to install extensions with chromewebstore.google.com blocked, try [Skebstore.](https://github.com/bypassiwastaken/skebstore)

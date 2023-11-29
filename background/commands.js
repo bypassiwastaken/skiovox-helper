@@ -37,6 +37,7 @@ async function onCommand(name, currentTab) {
         } else if (document.exitFullscreen) {
           document.exitFullscreen();
         }
+        break;
     case "NEW_TAB":
       openTab();
       break;

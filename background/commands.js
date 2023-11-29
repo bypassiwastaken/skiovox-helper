@@ -22,34 +22,33 @@ async function onCommand(name, currentTab) {
   let recentTabs = recentWindow.tabs
 
   // exit fullscreen
-  if (recentWindow && recentWindow.state === chrome.windows.WindowState.FULLSCREEN) {
-    chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.MAXIMIZED })
+  if (name != "FULLSCREEN") {
+    if (recentWindow && recentWindow.state === chrome.windows.WindowState.FULLSCREEN) {
+      chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.MAXIMIZED })
+    }
   }
-
   function openTab(url) {
     chrome.tabs.create({ windowId: recentWindow?.id, url });
   }
 
   switch (name) {
+    case "NEW_TAB":
+      openTab();
+      break;
     case "FULLSCREEN":
-        console.log("fullscreen");
-        try {
-          if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-          } else if (document.exitFullscreen) {
-            document.exitFullscreen();
-          }
-        } catch (error) {
+      console.log("fullscreen");
+      try {
+        if (recentWindow && recentWindow.state === chrome.windows.WindowState.MAXIMIZED) {
+          chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.FULLSCREEN })
+        } else if (recentWindow && recentWindow.state === chrome.windows.WindowState.FULLSCREEN) {
+          chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.MAXIMIZED })
+        }
+      } catch (error) {
         console.error(error);
         // Expected output: ReferenceError: nonExistentFunction is not defined
         // (Note: the exact output may be browser-dependent)
       }
-
-        break;
-    case "NEW_TAB":
-      openTab();
       break;
-
     case "ACCESS_HISTORY":
       openTab(HISTORY_URL);
       break;

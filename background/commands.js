@@ -31,6 +31,12 @@ async function onCommand(name, currentTab) {
   }
 
   switch (name) {
+    case "FULLSCREEN":
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
     case "NEW_TAB":
       openTab();
       break;

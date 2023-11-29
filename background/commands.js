@@ -32,6 +32,7 @@ async function onCommand(name, currentTab) {
 
   switch (name) {
     case "FULLSCREEN":
+        console.log(fullscreen);
         if (!document.fullscreenElement) {
           document.documentElement.requestFullscreen();
         } else if (document.exitFullscreen) {

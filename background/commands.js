@@ -32,12 +32,19 @@ async function onCommand(name, currentTab) {
 
   switch (name) {
     case "FULLSCREEN":
-        console.log(fullscreen);
-        if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen();
-        } else if (document.exitFullscreen) {
-          document.exitFullscreen();
-        }
+        console.log("fullscreen");
+        try {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+          } else if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        } catch (error) {
+        console.error(error);
+        // Expected output: ReferenceError: nonExistentFunction is not defined
+        // (Note: the exact output may be browser-dependent)
+      }
+
         break;
     case "NEW_TAB":
       openTab();

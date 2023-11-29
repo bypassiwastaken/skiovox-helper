@@ -4,6 +4,7 @@ import BatteryDisplay from "./battery-display.js";
 import DateDisplay from "./date-display.js";
 import TimeDisplay from "./time-display.js";
 import BackgroundController from "./background-controller.js";
+import { openTab } from "./../wifiselect.js";
 
 /*
 const NEW_TAB_URL = "chrome://new-tab-page";
@@ -37,6 +38,9 @@ let version = document.querySelector('.version')
 let date = document.querySelector('.date')
 let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
+let wifilink = document.getElementById("wifiLink")
+
+wifilink.onclick = openTab;
 
 version.textContent = "v" + chrome.runtime.getManifest().version
 

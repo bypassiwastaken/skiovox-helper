@@ -52,8 +52,8 @@ class DragController {
       left: deltaCoords.x,
       top: deltaCoords.y,
       height: this.currentWindow.height,
-      width: this.currentWindow.width
-    }
+      width: this.currentWindow.width,
+    };
 
     chrome.windows.update(this.currentWindow.id, updateInfo, () => {
       if (chrome.runtime.lastError) {

@@ -73,29 +73,16 @@
     }
   },
   "background": {
-    "scripts": [
-      "/background/commands.js",
-      "/background/setup.js",
-      "/background/webstore-fix.js"
-    ]
+    "scripts": ["/background/commands.js", "/background/setup.js", "/background/webstore-fix.js"]
   },
   "chrome_url_overrides": {
     "newtab": "/new-tab/main.html"
   },
-  "permissions": [
-    "commands",
-    "tabs",
-    "sessions",
-    "<all_urls>"
-  ],
+  "permissions": ["commands", "tabs", "sessions", "<all_urls>"],
   "content_scripts": [
     {
-      "matches": [
-        "*://*/*"
-      ],
-      "js": [
-        "/content-scripts/window-open-fix.js"
-      ],
+      "matches": ["*://*/*"],
+      "js": ["/content-scripts/window-open-fix.js"],
       "all-frames": true,
       "run-at": "document_start"
     }

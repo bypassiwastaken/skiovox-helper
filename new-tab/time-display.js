@@ -11,7 +11,11 @@ class TimeDisplay {
 
     render() { 
        let date = new Date()
-       this.element.textContent = date.toLocaleTimeString()
+       if(localStorage.getItem("timeLayout") == "1"){
+           this.element.textContent = date.toLocaleTimeString()
+       }else{
+           this.element.textContent = date.toLocaleTimeString("en-US", {hour12: false})
+       }
     }
 }
 

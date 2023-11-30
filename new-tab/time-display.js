@@ -11,7 +11,7 @@ class TimeDisplay {
 
   render() {
     let date = new Date();
-    // Use the toLocaleTimeString method with options to display in 24-hour format
+    // 24 hour time, change the hour12 to true for 12 hour time
     this.element.textContent = date.toLocaleTimeString([], { hour12: false });
   }
 }

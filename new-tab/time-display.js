@@ -15,4 +15,4 @@ class TimeDisplay {
     }
 }
 
-export { TimeDisplay }
+export default TimeDisplay

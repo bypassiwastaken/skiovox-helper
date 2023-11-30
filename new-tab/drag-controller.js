@@ -67,4 +67,4 @@ class DragController {
   }
 }
 
-export { DragController };
+export default DragController;

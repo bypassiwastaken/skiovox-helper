@@ -1,6 +1,12 @@
-const NEW_WEBSTORE_HOST = "chromewebstore.google.com"
+/*const NEW_WEBSTORE_HOST = "chromewebstore.google.com"
 const OLD_WEBSTORE_HOST = "chrome.google.com"
-const OLD_WEBSTORE_PATH = "/webstore"
+const OLD_WEBSTORE_PATH = "/webstore"*/
+import { url as URL } from './../urls.js';
+const {
+  NEW_WEBSTORE_HOST,
+  OLD_WEBSTORE_HOST,
+  OLD_WEBSTORE_PATH
+} = URL;
 
 function onTabUpdate(tabId, _, tab) {
     if (!tab.url) return

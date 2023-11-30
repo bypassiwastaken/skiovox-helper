@@ -37,7 +37,7 @@ let battery = document.querySelector('.battery')
 
 version.textContent = "v" + chrome.runtime.getManifest().version
 
-timeSettings.addEventListner('click', () => {
+timeSettings.addEventListener('click', () => {
     var option = prompt("do you want to change the date or time layout").toLowerCase();
     if (option[1] === "t"){
         var option2 = prompt("do you want to use 12 hour or 24 hour time");

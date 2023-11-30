@@ -23,6 +23,7 @@ let [
     reset,
     theme,
     colorChange,
+    timeSettings,
     wifi,
     bluetooth,
     files,
@@ -35,6 +36,17 @@ let time = document.querySelector('.time')
 let battery = document.querySelector('.battery')
 
 version.textContent = "v" + chrome.runtime.getManifest().version
+
+timeSettings.addEventListner('click', () => {
+    var option = prompt("do you want to change the date or time layout").toLowerCase();
+    if (option[1] === "t"){
+        var option2 = prompt("do you want to use 12 hour or 24 hour time");
+        if(option2[1] === "1" || option2[1] === "2"){localStorage.setItem("timeLayout", option2[1]);}
+    }else if(option[1] === "d"){
+        var option2 = prompt("do you want to use d/m/y hour or m/d/y").toLowerCase();
+        if(option2[1] === "d" || option2[1] === "m"){localStorage.setItem("dateLayout", option2[1]);}
+    }
+}
 
 wifi.addEventListener('click', () => {
     chrome.tabs.create({ url: WIFI_URL })

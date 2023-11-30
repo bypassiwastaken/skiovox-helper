@@ -46,7 +46,7 @@ timeSettings.addEventListner('click', () => {
         var option2 = prompt("do you want to use d/m/y hour or m/d/y").toLowerCase();
         if(option2[1] === "d" || option2[1] === "m"){localStorage.setItem("dateLayout", option2[1]);}
     }
-}
+})
 
 wifi.addEventListener('click', () => {
     chrome.tabs.create({ url: WIFI_URL })

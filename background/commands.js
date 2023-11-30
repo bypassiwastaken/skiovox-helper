@@ -36,19 +36,13 @@ async function onCommand(name, currentTab) {
       openTab();
       break;
     case "FULLSCREEN":
-      console.log("fullscreen");
-      try {
-        if (recentWindow && recentWindow.state === chrome.windows.WindowState.MAXIMIZED) {
-          chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.FULLSCREEN })
-        } else if (recentWindow && recentWindow.state === chrome.windows.WindowState.FULLSCREEN) {
-          chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.MAXIMIZED })
-        }
-      } catch (error) {
-        console.error(error);
-        // Expected output: ReferenceError: nonExistentFunction is not defined
-        // (Note: the exact output may be browser-dependent)
+      if (recentWindow && recentWindow.state === chrome.windows.WindowState.MAXIMIZED) {
+        chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.FULLSCREEN })
+      } else if (recentWindow && recentWindow.state === chrome.windows.WindowState.FULLSCREEN) {
+        chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.MAXIMIZED })
       }
       break;
+      
     case "ACCESS_HISTORY":
       openTab(HISTORY_URL);
       break;

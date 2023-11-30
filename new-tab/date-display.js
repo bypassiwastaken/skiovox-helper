@@ -17,7 +17,7 @@ class DateDisplay {
                date.getDate(),
                date.getFullYear()
            ].join('/')
-       }else if (localStorage.getItem("dateLayout") == "m"){
+       }else if (localStorage.getItem("dateLayout") == "d"){
            this.element.textContent = [
                date.getDate(),
                date.getMonth() + 1,

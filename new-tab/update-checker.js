@@ -11,7 +11,7 @@ class UpdateChecker {
       Date.now() - lastUpdateCheck >= 24 * 60 * 60 * 1000 // hours * minutes * seconds * milliseconds
     ) {
       fetch(
-        "https://api.github.com/repos/bypassiwastaken/skiovox-helper/releases/latest"
+        "https://api.github.com/repos/felixs-alt/skiovox-helper/releases/latest"
       )
         .then((response) => response.json())
         .then((data) => {

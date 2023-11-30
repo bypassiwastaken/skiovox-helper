@@ -17,9 +17,13 @@ class DateDisplay {
            date.getDate(),
            date.getFullYear()
        ].join('/')
-       }else{
+       }else if (localStorage.getItem("dateLayout") == "m"){
            date.getDate(),
            date.getMonth() + 1,
+           date.getFullYear()
+       }else{
+           date.getMonth() + 1,
+           date.getDate(),
            date.getFullYear()
        }
     }

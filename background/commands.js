@@ -1,11 +1,11 @@
-const VIEW_SOURCE_PREFIX = "view-source:";
-const HISTORY_URL = "chrome://history";
-const DOWNLOADS_URL = "chrome://downloads";
+const VIEW_SOURCE_PREFIX = "view-source:"
+const HISTORY_URL = "chrome://history"
+const DOWNLOADS_URL = "chrome://downloads"
 
 function getRecentWindow() {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     chrome.windows.getLastFocused({ populate: true }, resolve);
-  });
+  })
 }
 
 function cycleTabs(tabs, direction) {
@@ -13,17 +13,17 @@ function cycleTabs(tabs, direction) {
   if (!currentTab) return;
 
   let index = currentTab.index + direction;
-  index = (index + tabs.length) % tabs.length; // fix overflow
+  index = (index + tabs.length) % tabs.length // fix overflow
   chrome.tabs.update(tabs[index].id, { active: true });
 }
 
 async function onCommand(name, currentTab) {
-  let recentWindow = await getRecentWindow();
-  let recentTabs = recentWindow.tabs;
+  let recentWindow = await getRecentWindow()
+  let recentTabs = recentWindow.tabs
 
   // exit fullscreen
   if (recentWindow && recentWindow.state === chrome.windows.WindowState.FULLSCREEN) {
-    chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.MAXIMIZED });
+    chrome.windows.update(recentWindow.id, { state: chrome.windows.WindowState.MAXIMIZED })
   }
 
   function openTab(url) {
@@ -75,11 +75,11 @@ async function onCommand(name, currentTab) {
       break;
 
     case "TAB_NEXT":
-      cycleTabs(recentTabs, 1);
+      cycleTabs(recentTabs, 1)
       break;
 
     case "TAB_BACK":
-      cycleTabs(recentTabs, -1);
+      cycleTabs(recentTabs, -1)
       break;
 
     case "SWITCH_WINDOWS":
@@ -87,7 +87,7 @@ async function onCommand(name, currentTab) {
         if (windows.length > 1) {
           chrome.windows.update(recentWindow.id, { focused: false });
         }
-      });
+      })
       break;
 
     case "CTRL_1":

@@ -12,19 +12,23 @@ class DateDisplay {
     render() { 
        let date = new Date()
        if(localStorage.getItem("dateLayout") == "m"){
-       this.element.textContent = [
-           date.getMonth() + 1,
-           date.getDate(),
-           date.getFullYear()
-       ].join('/')
+           this.element.textContent = [
+               date.getMonth() + 1,
+               date.getDate(),
+               date.getFullYear()
+           ].join('/')
        }else if (localStorage.getItem("dateLayout") == "m"){
-           date.getDate(),
-           date.getMonth() + 1,
-           date.getFullYear()
+           this.element.textContent = [
+               date.getDate(),
+               date.getMonth() + 1,
+               date.getFullYear()
+       ].join('/')
        }else{
-           date.getMonth() + 1,
-           date.getDate(),
-           date.getFullYear()
+           this.element.textContent = [
+               date.getMonth() + 1,
+               date.getDate(),
+               date.getFullYear()
+           ].join('/')
        }
     }
 }

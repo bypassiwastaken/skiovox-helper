@@ -5,14 +5,22 @@
 
 body {
   padding: 8px;
-  background: #212121;
   color: #ffffff;
+  background: no-repeat center center / cover fixed; 
+  background-color: #212121;
+}
+
+p {
+  margin: 0.5%;
 }
 
 .top-left {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  left: 0;
+  top: 0;
+  padding: 13px;
+  border-bottom-right-radius: 16.7px;
+  user-select: none;
 }
 
 .name {
@@ -31,29 +39,41 @@ body {
 
 .top-right {
   top: 20px;
-  right: 20px;
+  right: 0;
+  top: 0;
+  padding: 13px;
+  border-bottom-left-radius: 16.7px;
 }
 
 .bottom-left {
   bottom: 20px;
-  left: 20px;
+  left: 0;
+  bottom: 0;
+  padding: 13px;
+  border-top-right-radius: 16.7px;
 }
 
 .bottom-right {
   bottom: 20px;
-  right: 20px;
+  right: 0;
+  bottom: 0;
+  padding: 13px;
+  border-top-left-radius: 16.7px;
 }
 
 .center {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 500px;
+  width: 425px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
   text-align: center;
   transform: translate(-50%, -50%);
+  padding: 15px;
+  border-radius: 16.7px;
+  user-select: none;
 }
 
 .date {
@@ -66,7 +86,11 @@ body {
 }
 
 .battery {
-  font-size: 15px;
+  font-size: 20px;
+}
+
+.batterySlider {
+  letter-spacing: 1px;
 }
 
 svg {
@@ -77,6 +101,15 @@ svg {
   height: 30px;
   cursor: pointer;
   transition: transform 250ms;
+}
+
+/* I tried to flip the svg, but couldn't find a free way, so I just flip it in code :P */
+.flip {
+  transform: scaleX(-1);
+}
+
+.flip:hover {
+  transform: scaleX(-1.2) scaleY(1.2);
 }
 
 svg:hover {

@@ -1,6 +1,7 @@
 const VIEW_SOURCE_PREFIX = "view-source:"
 const HISTORY_URL = "chrome://history"
 const DOWNLOADS_URL = "chrome://downloads"
+const EXCEPTION_LIST = ["https://remotedesktop.google.com/access/session/"]
 
 function getRecentWindow() {
   return new Promise(resolve => {
@@ -30,6 +31,24 @@ async function onCommand(name, currentTab) {
     chrome.tabs.create({ windowId: recentWindow?.id, url });
   }
 
+  // Jumbled mess, but it gets all tabs, looks for the one that is active(that the user is looking at) and then checks if its in the exception list
+  chrome.tabs.query({ windowType: 'normal' }, function (tabs) {
+    let isTabConnection = false
+    tabs.forEach(tab => {
+      if (tab.active == true) {
+        EXCEPTION_LIST.forEach(url => {
+          if (tab.url.includes(url)) {
+            isTabConnection = true
+          }
+        })
+      }
+    });
+    if (isTabConnection == false) {
+      keybinds()
+    }
+  });
+
+  async function keybinds() {
   switch (name) {
     case "NEW_TAB":
       openTab();
@@ -51,12 +70,18 @@ async function onCommand(name, currentTab) {
       break;
 
     case "CLOSE_TAB":
-      if (currentTab && currentTab.id !== chrome.tabs.TAB_ID_NONE) {
-        chrome.tabs.remove(currentTab.id);
-      }
+      chrome.tabs.query({ windowType: 'normal' }, function (tabs) {
+        if (tabs.length >= 2) {
+          if (currentTab && currentTab.id !== chrome.tabs.TAB_ID_NONE) {
+            chrome.tabs.remove(currentTab.id);
+          }
+        }
+      })
       break;
 
     case "RESTORE_TAB":
+      // Because this window is "fake", restoring doesn't work 2a
+      // Causes error: "There are no browser windows to restore the session."
       chrome.sessions.restore();
       break;
 
@@ -109,6 +134,7 @@ async function onCommand(name, currentTab) {
       let lastTab = recentTabs[recentTabs.length - 1];
       chrome.tabs.update(lastTab.id, { active: true });
       break;
+    }
   }
 }
 

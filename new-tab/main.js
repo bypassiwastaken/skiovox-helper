@@ -23,6 +23,7 @@ let [
     reset,
     theme,
     colorChange,
+    backgroundChange,
     wifi,
     bluetooth,
     files,
@@ -88,4 +89,4 @@ new FullscreenController(fullscreen);
 new BatteryDisplay(battery);
 new DateDisplay(date);
 new TimeDisplay(time);
-new BackgroundController(colorChange);
+new BackgroundController(colorChange, backgroundChange);

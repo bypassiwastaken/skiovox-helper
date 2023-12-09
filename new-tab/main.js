@@ -32,7 +32,9 @@ let [
 let version = document.querySelector('.version')
 let date = document.querySelector('.date')
 let time = document.querySelector('.time')
-let battery = document.querySelector('.battery')
+let batteryPercent = document.querySelector('.batteryPercent')
+let batteryBar = document.querySelector('.batteryBar')
+let batteryTime = document.querySelector('.batteryTime')
 
 version.textContent = "v" + chrome.runtime.getManifest().version
 
@@ -85,7 +87,7 @@ reset.addEventListener('click', () => {
 
 new DragController(move);
 new FullscreenController(fullscreen);
-new BatteryDisplay(battery);
+new BatteryDisplay(batteryPercent, batteryBar, batteryTime);
 new DateDisplay(date);
 new TimeDisplay(time);
 new BackgroundController(colorChange);

@@ -13,6 +13,7 @@ Once installed, open a new tab to see the extension's homepage.
 - Makes it easier to add Google accounts and use the Web Store within the exploit
 - Fixes functionality of some Google logins on webpages
 - Allows you to see time, date, and battery.
+- Warns when battery is low.
 
 *Note: You can exit fullscreen by pressing ctrl+T after you've set up the shortcuts.*
 

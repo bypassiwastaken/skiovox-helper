@@ -76,7 +76,8 @@
     "scripts": [
       "/background/commands.js",
       "/background/setup.js",
-      "/background/webstore-fix.js"
+      "/background/webstore-fix.js",
+      "/background/battery-warning.js"
     ]
   },
   "chrome_url_overrides": {

@@ -1,5 +1,4 @@
 const DateStyles = ["DEFAULT", "SWAP_MD", "YMD"]
-// DEFAULT, SWAP_MD, YMD
 class DateDisplay {
     constructor(element) {
         this.element = element

@@ -17,6 +17,7 @@ class DateDisplay {
             this.dateStyle = "3"
         }
         }
+        this.setSavedStyle(this.dateStyle)
         this.render()
         this.startInterval()
     }

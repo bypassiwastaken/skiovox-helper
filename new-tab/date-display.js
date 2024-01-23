@@ -1,4 +1,4 @@
-const DateStyles = ["1", "2", "3"]
+const DateStyles = ["DEFAULT", "SWAP_MD", "YMD"]
 // DEFAULT, SWAP_MD, YMD
 class DateDisplay {
     constructor(element) {

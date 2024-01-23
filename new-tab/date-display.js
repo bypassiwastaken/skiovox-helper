@@ -1,12 +1,22 @@
-const DateStyles = {
-    DEFAULT: 1,
-    SWAP_MD: 2
-}
-
+const DateStyles = ["1", "2", "3"]
+// DEFAULT, SWAP_MD, YMD
 class DateDisplay {
     constructor(element) {
         this.element = element
         this.dateStyle = this.getSavedStyle()
+        if (typeof this.dateStyle === 'string' || this.dateStyle instanceof String) {
+            // ok cool
+        } else {
+            if (this.dateStyle = DateStyles.DEFAULT) {
+            this.dateStyle = "1" 
+        }
+        else if (this.dateStyle = DateStyles.SWAP_MD) {
+            this.dateStyle = "2"
+        }
+        else if (this.dateStyle = DateStyles.YMD) {
+            this.dateStyle = "3"
+        }
+        }
         this.render()
         this.startInterval()
     }
@@ -25,24 +35,28 @@ class DateDisplay {
             year: date.getFullYear()
         }
 
-        if (this.dateStyle == 2) {
+        if (this.dateStyle == "1") {
+            this.element.textContent = [
+                parts.day, parts.month, parts.year
+            ].join('/')
+        } 
+        else if (this.dateStyle == "2") {
             this.element.textContent = [
                 parts.month, parts.day, parts.year
             ].join('/')
-        } else {
+        } 
+        else if (this.dateStyle == "3") {
             this.element.textContent = [
-                parts.day, parts.month, parts.year
+                parts.year, parts.month, parts.day
             ].join('/')
         }
     }
 
     onClickedDate() {
-        if (this.dateStyle === DateStyles.DEFAULT) {
-            this.dateStyle = DateStyles.SWAP_MD
-        } else {
-            this.dateStyle = DateStyles.DEFAULT
-        } // TODO: fix this middery
-
+        this.dateStyle = parseInt(this.dateStyle)+1
+        if (parseInt(this.dateStyle) > 3) {
+            this.dateStyle = 1
+        }
         this.setSavedStyle(this.dateStyle)
     }
 
@@ -51,7 +65,7 @@ class DateDisplay {
     }
 
     getSavedStyle() {
-        return Number(localStorage.dateStyle) || DateStyles.DEFAULT
+        return localStorage.dateStyle || "1"
     }
 }
 

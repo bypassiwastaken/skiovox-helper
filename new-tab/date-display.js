@@ -55,7 +55,7 @@ class DateDisplay {
 
     onClickedDate() {
         this.dateStyle = parseInt(this.dateStyle)+1
-        if (parseInt(this.dateStyle) > 3) {
+        if (parseInt(this.dateStyle) > DateStyles.length) {
             this.dateStyle = 1
         }
         this.setSavedStyle(this.dateStyle)
